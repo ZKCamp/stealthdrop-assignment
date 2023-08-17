@@ -80,7 +80,12 @@ noirup -v 0.7.1
     ```
     git clone CLONE_URL
     ```
+-   Create a new branch
 
+    ```
+    git checkout -b solution
+    ```
+    
 -   Make changes to the `circuits/src/main.nr` file.
 
 -   Run Tests
@@ -88,7 +93,7 @@ noirup -v 0.7.1
     nargo test
     ```
 
--   Push your changes to `main` branch of your forked repo.
+-   Push your changes to `solution` branch and create a pull request to the main branch of your forked repo.
 
 -   Submit your name, email and link to your forked repo [here](https://airtable.com/apppwJwKgRGomJLLY/shrlDlkFR3XZKZRmN).
 
