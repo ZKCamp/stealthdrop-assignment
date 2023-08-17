@@ -33,7 +33,7 @@ Use the below steps to form the logic of circuit:
 npm run generate-example-inputs
 ```
 
-**Note: The [file](utils/populate.ts) being used to populate the inputs is also very useful for understanding how the inputs are being formed. **
+__Note: The [file](utils/populate.ts) being used to populate the inputs is also very useful for understanding how the inputs are being formed.__
 
 ## How do polynomial commitments work?
 
