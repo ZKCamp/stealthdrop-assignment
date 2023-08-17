@@ -1,0 +1,8 @@
+# JS
+node_modules/
+
+# Circuit file
+crs/
+circuits/target
+
+.env
