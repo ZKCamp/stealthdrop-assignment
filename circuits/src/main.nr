@@ -11,11 +11,38 @@ fn main(
   polynomial_commitment: pub Field,
   nullifier: pub [u8; 32],
 ) {
-  // Write your main logic here
+
+  let nullifier_hash = std::hash::blake2s(signature);
+  assert(nullifier_hash == nullifier);
+  std::println("checking nullifier passed");
+
+  let mut pub_key_x = [0; 32];
+  let mut pub_key_y = [0; 32];
+  for i in 0..32 {
+    pub_key_x[i] = pub_key[i];
+    pub_key_y[i] = pub_key[i + 32];
+  }
+  let signer = ecrecover::ecrecover(pub_key_x, pub_key_y, signature, hashed_message);
+  std::println("signer address recovered");
+
+  let polynomial_hash = std::hash::pedersen(polynomial);
+  assert(polynomial_hash[0] == polynomial_commitment);
+  std::println("checking polynomial commitment passed");
+
+  let value = evaluate_polynomial(polynomial, signer);
+  assert(value == 0);
+  std::println("evaluation of address passed");
 }
 
 fn evaluate_polynomial(polynomial: [Field; CANDIDATES + 1], x: Field) -> Field {
-  // Write logic to evaluate polynomial here
+  let mut mult = 1;
+  let mut evaluation = 0;
+
+  for i in 0..CANDIDATES + 1 {
+    evaluation = mult * polynomial[i] + evaluation;
+    mult = mult * x;
+  }
+  evaluation
 }
 
 #[test]

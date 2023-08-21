@@ -59,7 +59,7 @@ __Note: The [file](utils/populate.ts) being used to populate the inputs is also 
 yarn
 ```
 
-* Make sure you are using the nargo version `0.7.1`. The libraries being used are only compatible with this version. You can check your nargo version using the below command
+* Make sure you are using the nargo version matches the libraries (`ecrecover`) being used are only compatible with this version. You can check your nargo version using the below command
 
 ```bash
 nargo --version
@@ -85,7 +85,7 @@ noirup -v 0.7.1
     ```
     git checkout -b solution
     ```
-    
+
 -   Make changes to the `circuits/src/main.nr` file.
 
 -   Run Tests
