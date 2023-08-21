@@ -97,6 +97,8 @@ noirup -v 0.7.1
 
 -   Submit your name, email and link to your forked repo [here](https://airtable.com/apppwJwKgRGomJLLY/shrlDlkFR3XZKZRmN).
 
+Note: The hash of the signature is non-deterministic and thus it is improper to use it as a nullifier. This is only a toy example and not to be used directly in production.
+
 ## Reference
 
 - [Noir Docs](https://noir-lang.org/)
