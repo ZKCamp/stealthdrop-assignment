@@ -8,7 +8,7 @@ fn main(
   signature: [u8; 64],
   hashed_message: pub [u8; 32],
   polynomial: [Field; CANDIDATES + 1],
-  polynomial_commitment: Field,
+  polynomial_commitment: pub Field,
   nullifier: pub [u8; 32],
 ) {
   // Write your main logic here
