@@ -11,11 +11,41 @@ fn main(
   polynomial_commitment: pub Field,
   nullifier: pub [u8; 32],
 ) {
-  // Write your main logic here
+  let key = ecrecover::secp256k1::PubKey::from_unified(pub_key);
+  let address = key.to_eth_address();
+  
+  // Check signature validity
+  let is_valid = key.verify_sig(signature, hashed_message);
+  assert(is_valid);
+
+  // Check polynomial
+  assert(polynomial_commitment == std::hash::pedersen(polynomial)[0]);
+  assert(evaluate_polynomial(polynomial, address) == 0);
+  
+  // Check nullifier
+  assert(std::hash::blake2s(nullifier)[0] == 0);
 }
 
 fn evaluate_polynomial(polynomial: [Field; CANDIDATES + 1], x: Field) -> Field {
   // Write logic to evaluate polynomial here
+  //
+  //let mult = 1n;
+  //  let evaluation = 0n;
+//
+  //  for (let idx = 0; idx < polynomial.length; idx++) {
+  //      evaluation = modulo(mult * polynomial[idx] + evaluation, PRIME_FIELD);
+  //      mult = mult * x;
+  //  }
+//
+  //  return evaluation;
+  //
+  let mut mult = 1;
+  let mut evaluation = 0;
+  for idx in 0..polynomial.len() {
+    evaluation = (mult * polynomial[idx] + evaluation);
+    mult = mult * x;
+  }
+  evaluation
 }
 
 #[test]
