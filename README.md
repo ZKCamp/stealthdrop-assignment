@@ -1,5 +1,7 @@
 # ZK Stealth Drop Assignment
 
+[![test](https://github.com/kevin-fruitful/stealthdrop-assignment/actions/workflows/test.yml/badge.svg)](https://github.com/kevin-fruitful/stealthdrop-assignment/actions/workflows/test.yml)
+
 ## What is a stealth drop?
 
 StealthDrop is an airdrop utility that enables token airdrops to be claimed by completely anonymous accounts. The purpose of StealthDrop is to address the privacy and identity issues associated with traditional token airdrops, where recipients' identities and actions are often known and visible to others.
