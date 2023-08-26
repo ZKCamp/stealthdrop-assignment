@@ -12,10 +12,27 @@ fn main(
   nullifier: pub [u8; 32],
 ) {
   // Write your main logic here
+  let key = ecrecover::secp256k1::PubKey::from_unified(pub_key);
+  let is_valid = key.verify_sig(signature, hashed_message);
+  assert(is_valid == true);
+  // populate.ts l75 is using pedersen 
+  assert(polynomial_commitment == std::hash::pedersen(polynomial)[0]);
+
+  // 1. Recover the signer's addr from pub key, sig, and hashed message.
+  let addr = key.ecrecover(signature, hashed_message);
+
+  // 2. Check whether the address is included in the polynomial.
+  assert(evaluate_polynomial(polynomial, addr) == 0);
+
+  // 3. Check the given nullifier is a valid (blake2s) hash of signature.
+  // note: blake2s hash of sig is non-deterministic and an improper way to generate a nullifier.
+  assert(nullifier == std::hash::blake2s(signature));
 }
 
 fn evaluate_polynomial(polynomial: [Field; CANDIDATES + 1], x: Field) -> Field {
   // Write logic to evaluate polynomial here
+  let result = polynomial[0] + polynomial[1] * x + polynomial[2] * x * x;
+  result
 }
 
 #[test]

@@ -62,7 +62,7 @@ pub_key = [
   123,
   13,
   42,
-  165,
+  165
 ]
 signature = [
   1,
@@ -128,7 +128,7 @@ signature = [
   215,
   224,
   56,
-  242,
+  242
 ]
 hashed_message = [
   3,
@@ -162,7 +162,7 @@ hashed_message = [
   246,
   219,
   19,
-  104,
+  104
 ]
 nullifier = [
   142,
@@ -196,11 +196,11 @@ nullifier = [
   58,
   37,
   10,
-  101,
+  101
 ]
 polynomial = [
   "0x0832c9fedf291cc3adf56eefd21ac09630c66ad67747329385c9fcfc7cbf8d38",
   "0x30644e72e131a029b85045b51d480807486e4c754ae9f95bbfba6db6d86a63d3",
-  "0x01",
+  "0x01"
 ]
 polynomial_commitment = "0x1eceef64088bbbeb280bee01b3f4e611137e8d0ac5a868f538e4617df5c62ec2"
