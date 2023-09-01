@@ -1,3 +1,8 @@
+# My note
+
+I tried my best, but I got stuck on the 2nd step.
+
+
 # ZK Stealth Drop Assignment
 
 ## What is a stealth drop?
